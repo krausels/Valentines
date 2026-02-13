@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+button {
+    background: white;
+    color: #ff4b6e;
+    border: none;
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4b6e;
+    color: white;
+}
+
+.card {
+    display: none;
+    background: rgba(255,255,255,0.2);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+img {
+    width: 90%;
+    max-width: 320px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+.heart {
+    position: fixed;
+    color: white;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Happy Valentine's Day ❤️</h1>
+<p>To the most special person in my life 💕</p>
+
+<button onclick="showSection('love')">Why I Love You 💌</button>
+<button onclick="showSection('memory')">Our Memory 📸</button>
+<button onclick="showSection('surprise')">Surprise 🎁</button>
+
+<div id="love" class="card">
+    <h2>Why I Love You ❤️</h2>
+    <ul style="list-style:none; padding:0;">
+        <li>💕 You make me feel safe</li>
+        <li>💕 Your smile makes my day better</li>
+        <li>💕 You believe in me</li>
+        <li>💕 You are my best friend</li>
+        <li>💕 I love who I am when I'm with you</li>
+    </ul>
+</div>
+
+<div id="memory" class="card">
+    <h2>Our Special Memory 📸</h2>
+    <p>This moment means everything to me.</p>
+    <!-- Upload your image and replace "photo.jpg" -->
+    <img src="photo.jpg" alt="Our Memory">
+</div>
+
+<div id="surprise" class="card">
+    <h2>My Surprise For You 💖</h2>
+    <p>I choose you today.</p>
+    <p>I choose you tomorrow.</p>
+    <p>I choose you forever. ❤️</p>
+</div>
+
+</div>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll('.card').forEach(card => {
+        card.style.display = 'none';
+    });
+    document.getElementById(id).style.display = 'block';
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
