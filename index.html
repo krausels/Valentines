@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Game</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+/* General styles */
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive; /* Minecraft style font */
+    background-color: #d6b3ff; /* pastel purple */
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+button {
+    background-color: #fff;
+    color: #d6b3ff;
+    border: none;
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #bfa2ff;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Player page */
+.player-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Cards page */
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-button {
+    width: 80%;
+    max-width: 250px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #d6b3ff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-button:hover {
+    background-color: #bfa2ff;
+    color: white;
+}
+
+/* Content pages */
+.content img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 500px) {
+    .player img {
+        width: 80px;
+        height: 80px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div id="page-start" class="container">
+    <h1>Welcome ❤️</h1>
+    <button onclick="showPage('page-players')">Start</button>
+</div>
+
+<div id="page-players" class="container hidden">
+    <h1>Ready to play?</h1>
+    <div class="player-row">
+        <div class="player">
+            <!-- Replace src with pixel art later -->
+            <img src="player1.png" alt="Naz">
+            <p>Naz</p>
+        </div>
+        <div class="player">
+            <img src="player2.png" alt="Annabell">
+            <p>Annabell</p>
+        </div>
+    </div>
+    <button onclick="showPage('page-cards')">Continue</button>
+</div>
+
+<div id="page-cards" class="container hidden">
+    <h1>Pick a Card 🎴</h1>
+    <div class="cards">
+        <div class="card-button" onclick="revealCard(this, 'valentine')">Card 1</div>
+        <div class="card-button" onclick="revealCard(this, 'memories')">Card 2</div>
+        <div class="card-button" onclick="revealCard(this, 'custom')">Card 3</div>
+    </div>
+</div>
+
+<!-- Valentine page -->
+<div id="page-valentine" class="container hidden content">
+    <h1>Happy Valentines Baby ❤️</h1>
+    <!-- Add pictures here -->
+    <img src="valentine1.jpg" alt="Valentine Picture">
+    <img src="valentine2.jpg" alt="Valentine Picture">
+    <button onclick="showPage('page-start')">Back to Start</button>
+</div>
+
+<!-- Memories page -->
+<div id="page-memories" class="container hidden content">
+    <h1>Our Memories 📸</h1>
+    <!-- Add pictures here -->
+    <img src="memory1.jpg" alt="Memory Picture">
+    <img src="memory2.jpg" alt="Memory Picture">
+    <button onclick="showPage('page-start')">Back to Start</button>
+</div>
+
+<!-- Custom text + pictures page -->
+<div id="page-custom" class="container hidden content">
+    <h1>My Message 💌</h1>
+    <p>
+        <!-- Write a long text here -->
+        You are the most amazing person in the world. Every day with you is magical. I love you more than words can say!
+    </p>
+    <!-- Add side pictures here -->
+    <img src="custom1.jpg" alt="Custom Picture">
+    <img src="custom2.jpg" alt="Custom Picture">
+    <button onclick="showPage('page-start')">Back to Start</button>
+</div>
+
+<script>
+// Page navigation
+function showPage(id) {
+    document.querySelectorAll('.container').forEach(page => {
+        page.classList.add('hidden');
+    });
+    document.getElementById(id).classList.remove('hidden');
+}
+
+// Card reveal system
+function revealCard(cardButton, pageId) {
+    if (cardButton.innerText === "Click to Open") {
+        // Show the content page
+        if(pageId === 'valentine') showPage('page-valentine');
+        if(pageId === 'memories') showPage('page-memories');
+        if(pageId === 'custom') showPage('page-custom');
+    } else {
+        cardButton.innerText = "Click to Open";
+    }
+}
+</script>
+
+</body>
+</html>
