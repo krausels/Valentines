@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+    text-align: center;
+    color: white;
+}
+
+.container {
+    padding: 30px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+button {
+    background: white;
+    color: #ff4b6e;
+    border: none;
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4b6e;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.card {
+    background: rgba(255,255,255,0.2);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Happy Valentine's Day ❤️</h1>
+<p>To the most amazing person in my life 💕</p>
+
+<button onclick="showLove()">Why I Love You 💌</button>
+<button onclick="showMemory()">Our Memory 📸</button>
+<button onclick="showSurprise()">Click For A Surprise 🎁</button>
+
+<div id="love" class="hidden card">
+    <h2>Why I Love You ❤️</h2>
+    <ul style="list-style:none; padding:0;">
+        <li>💕 Your smile lights up my world</li>
+        <li>💕 You make even normal days special</li>
+        <li>💕 You support me no matter what</li>
+        <li>💕 I feel safe with you</li>
+        <li>💕 You are my best friend</li>
+    </ul>
+</div>
+
+<div id="memory" class="hidden card">
+    <h2>Our Special Memory 📸</h2>
+    <p>Remember this day? It meant everything to me.</p>
+
+    <!-- REPLACE image.jpg with your picture file name -->
+    <img src="image.jpg" alt="Our Memory">
+</div>
+
+<div id="surprise" class="hidden card">
+    <h2>Surprise 💖</h2>
+    <p>You are the love of my life.</p>
+    <p>I choose you today, tomorrow, and forever. ❤️</p>
+</div>
+
+</div>
+
+<script>
+function hideAll() {
+    document.getElementById("love").classList.add("hidden");
+    document.getElementById("memory").classList.add("hidden");
+    document.getElementById("surprise").classList.add("hidden");
+}
+
+function showLove() {
+    hideAll();
+    document.getElementById("love").classList.remove("hidden");
+}
+
+function showMemory() {
+    hideAll();
+    document.getElementById("memory").classList.remove("hidden");
+}
+
+function showSurprise() {
+    hideAll();
+    document.getElementById("surprise").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
